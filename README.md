@@ -21,3 +21,7 @@ The flow is as shown:
 The commands through the NodeRed Dashboard are sent to the cloud and are read by a Python script running locally to read the command and then take appropriate actions via actuators. The python code for the same is available [here](https://github.com/SmartPracticeschool/llSPS-INT-846-Smart-Agriculture-system-based-on-IoT/blob/master/IBMWatson_Code_for%20_Data_Reception.py). The command read by the IDE is shown below:
 ![](https://github.com/SmartPracticeschool/llSPS-INT-846-Smart-Agriculture-system-based-on-IoT/blob/master/Images/PythonIDE.jpg)
 
+## More information
+Any further information needed can be accessed [here](https://github.com/SmartPracticeschool/llSPS-INT-846-Smart-Agriculture-system-based-on-IoT/tree/master/Documentation).
+
+### ThankYou!

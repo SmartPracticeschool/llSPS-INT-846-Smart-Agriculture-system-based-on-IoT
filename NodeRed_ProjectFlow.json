@@ -1,0 +1,690 @@
+[
+    {
+        "id": "8fab44bd.a90a78",
+        "type": "tab",
+        "label": "IBM IoT-UI",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ae13bd5c.c66c8",
+        "type": "ibmiot in",
+        "z": "8fab44bd.a90a78",
+        "authentication": "apiKey",
+        "apiKey": "7dd0c222.d9446c",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "1410a2000",
+        "applicationId": "",
+        "deviceType": "IoT_Sensor",
+        "eventType": "+",
+        "commandType": "Data",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": "",
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 70,
+        "y": 140,
+        "wires": [
+            [
+                "dde0e6ad.e51b68",
+                "ace840b4.e9014",
+                "811784ad.111378",
+                "68abc0e2.cc756"
+            ]
+        ]
+    },
+    {
+        "id": "dde0e6ad.e51b68",
+        "type": "debug",
+        "z": "8fab44bd.a90a78",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 290,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "ace840b4.e9014",
+        "type": "function",
+        "z": "8fab44bd.a90a78",
+        "name": "Temperature",
+        "func": "msg.payload=msg.payload.d.temperature\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "dde0e6ad.e51b68",
+                "2c5a1cb7.66dab4",
+                "18710b82.ee1814"
+            ]
+        ]
+    },
+    {
+        "id": "811784ad.111378",
+        "type": "function",
+        "z": "8fab44bd.a90a78",
+        "name": "Humidity",
+        "func": "msg.payload=msg.payload.d.humidity\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "dde0e6ad.e51b68",
+                "2a63b2e5.7f752e",
+                "7403cd54.192ce4"
+            ]
+        ]
+    },
+    {
+        "id": "2c5a1cb7.66dab4",
+        "type": "ui_gauge",
+        "z": "8fab44bd.a90a78",
+        "name": "",
+        "group": "3c243370.98abdc",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": " IBM Waston Sensor Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 600,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2a63b2e5.7f752e",
+        "type": "ui_gauge",
+        "z": "8fab44bd.a90a78",
+        "name": "",
+        "group": "3c243370.98abdc",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "IBM Waston Sensor Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 580,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "68abc0e2.cc756",
+        "type": "function",
+        "z": "8fab44bd.a90a78",
+        "name": "Soil Temperature",
+        "func": "msg.payload=msg.payload.d.objectTemp\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "f31ac5a2.181198",
+                "f1d8cb5e.6ae208",
+                "dde0e6ad.e51b68"
+            ]
+        ]
+    },
+    {
+        "id": "f31ac5a2.181198",
+        "type": "ui_gauge",
+        "z": "8fab44bd.a90a78",
+        "name": "",
+        "group": "3c243370.98abdc",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "IBM Sensor Soil Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 580,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "18710b82.ee1814",
+        "type": "ui_text",
+        "z": "8fab44bd.a90a78",
+        "group": "3c243370.98abdc",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "IBM Watson Sensor Temperature (°C)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 610,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "7403cd54.192ce4",
+        "type": "ui_text",
+        "z": "8fab44bd.a90a78",
+        "group": "3c243370.98abdc",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "IBM Watson Sensor Humidity (%)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 600,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f1d8cb5e.6ae208",
+        "type": "ui_text",
+        "z": "8fab44bd.a90a78",
+        "group": "3c243370.98abdc",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "IBM Sensor Soil Temperature (°C)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 600,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c00e705c.cffb3",
+        "type": "inject",
+        "z": "8fab44bd.a90a78",
+        "name": "HTTP Inject",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.1",
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "cd4ebeaf.9f68a"
+            ]
+        ]
+    },
+    {
+        "id": "cd4ebeaf.9f68a",
+        "type": "http request",
+        "z": "8fab44bd.a90a78",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": false,
+        "url": "http://api.openweathermap.org/data/2.5/weather?q=Mumbai&units=metric&appid=577a1cbdcb2a11d51cc74f5f5962791a",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "b64ad60d.4bb4b8",
+                "432a3d64.d27124",
+                "38059f89.05df"
+            ]
+        ]
+    },
+    {
+        "id": "b64ad60d.4bb4b8",
+        "type": "function",
+        "z": "8fab44bd.a90a78",
+        "name": "TemperatureAPI",
+        "func": "msg.payload=msg.payload.main.temp\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 460,
+        "y": 280,
+        "wires": [
+            [
+                "34ddf39f.c565dc",
+                "79eca53d.2c641c"
+            ]
+        ]
+    },
+    {
+        "id": "34ddf39f.c565dc",
+        "type": "ui_gauge",
+        "z": "8fab44bd.a90a78",
+        "name": "",
+        "group": "5c872dc1.21f164",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 630,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4957277d.6043c8",
+        "type": "ui_gauge",
+        "z": "8fab44bd.a90a78",
+        "name": "",
+        "group": "5c872dc1.21f164",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 620,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "432a3d64.d27124",
+        "type": "function",
+        "z": "8fab44bd.a90a78",
+        "name": "Humidity",
+        "func": "msg.payload=msg.payload.main.humidity\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 320,
+        "wires": [
+            [
+                "4957277d.6043c8",
+                "1a959367.7575fd"
+            ]
+        ]
+    },
+    {
+        "id": "79eca53d.2c641c",
+        "type": "ui_text",
+        "z": "8fab44bd.a90a78",
+        "group": "5c872dc1.21f164",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Real-time Temperature (°C)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 680,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "1a959367.7575fd",
+        "type": "ui_text",
+        "z": "8fab44bd.a90a78",
+        "group": "5c872dc1.21f164",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Real-time Humidity (%)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 670,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "38059f89.05df",
+        "type": "function",
+        "z": "8fab44bd.a90a78",
+        "name": "FeelsLike",
+        "func": "msg.payload=msg.payload.main.feels_like\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 440,
+        "y": 420,
+        "wires": [
+            [
+                "b83b554b.f16538",
+                "84fd029d.60bce"
+            ]
+        ]
+    },
+    {
+        "id": "b83b554b.f16538",
+        "type": "ui_gauge",
+        "z": "8fab44bd.a90a78",
+        "name": "",
+        "group": "5c872dc1.21f164",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "FeelsLike Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 660,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "84fd029d.60bce",
+        "type": "ui_text",
+        "z": "8fab44bd.a90a78",
+        "group": "5c872dc1.21f164",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "FeelsLike Temperature (°C)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 680,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "d8ff56c3.89cc68",
+        "type": "ibmiot out",
+        "z": "8fab44bd.a90a78",
+        "authentication": "apiKey",
+        "apiKey": "7dd0c222.d9446c",
+        "outputType": "cmd",
+        "deviceId": "1234",
+        "deviceType": "Data",
+        "eventCommandType": "blink",
+        "format": "json",
+        "data": "Data",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 740,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "b4ee8e7b.1e364",
+        "type": "ui_button",
+        "z": "8fab44bd.a90a78",
+        "name": "MOTOR ON",
+        "group": "95ec373b.008dd8",
+        "order": 1,
+        "width": 4,
+        "height": 2,
+        "passthru": false,
+        "label": "WaterPump ON",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#008000",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 110,
+        "y": 520,
+        "wires": [
+            [
+                "832d7371.b7f0f"
+            ]
+        ]
+    },
+    {
+        "id": "8f5e6fc7.0fa44",
+        "type": "ui_button",
+        "z": "8fab44bd.a90a78",
+        "name": "MOTOR OFF",
+        "group": "95ec373b.008dd8",
+        "order": 2,
+        "width": 4,
+        "height": 2,
+        "passthru": false,
+        "label": "WaterPump OFF",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#FF0000",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "",
+        "x": 100,
+        "y": 560,
+        "wires": [
+            [
+                "832d7371.b7f0f"
+            ]
+        ]
+    },
+    {
+        "id": "832d7371.b7f0f",
+        "type": "function",
+        "z": "8fab44bd.a90a78",
+        "name": "MOTOR_STATUS_CHECK",
+        "func": "if(msg.payload === true)\n    msg.payload = '{\"motor\":\"ON\"}'\nelse\n    msg.payload = '{\"motor\":\"OFF\"}'\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 540,
+        "wires": [
+            [
+                "864d1114.f5ca6",
+                "b4f33b63.71c3e8"
+            ]
+        ]
+    },
+    {
+        "id": "864d1114.f5ca6",
+        "type": "function",
+        "z": "8fab44bd.a90a78",
+        "name": "Status",
+        "func": "var data=JSON.parse(msg.payload);\nmsg.payload=data.motor;\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 570,
+        "y": 520,
+        "wires": [
+            [
+                "bf60451b.fd8be8",
+                "f2e6273b.57ac58",
+                "9087050c.0e4fd8"
+            ]
+        ]
+    },
+    {
+        "id": "b4f33b63.71c3e8",
+        "type": "json",
+        "z": "8fab44bd.a90a78",
+        "name": "MOTOR",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 580,
+        "y": 560,
+        "wires": [
+            [
+                "d8ff56c3.89cc68"
+            ]
+        ]
+    },
+    {
+        "id": "bf60451b.fd8be8",
+        "type": "ui_text",
+        "z": "8fab44bd.a90a78",
+        "group": "95ec373b.008dd8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "MOTOR STATUS:",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 750,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f2e6273b.57ac58",
+        "type": "ui_toast",
+        "z": "8fab44bd.a90a78",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": true,
+        "topic": "",
+        "name": "Notif",
+        "x": 910,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "9087050c.0e4fd8",
+        "type": "ui_audio",
+        "z": "8fab44bd.a90a78",
+        "name": "Audio",
+        "group": "95ec373b.008dd8",
+        "voice": "en-US",
+        "always": true,
+        "x": 910,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "7dd0c222.d9446c",
+        "type": "ibmiot",
+        "z": "",
+        "name": "",
+        "keepalive": "60",
+        "serverName": "",
+        "cleansession": true,
+        "appId": "",
+        "shared": false
+    },
+    {
+        "id": "3c243370.98abdc",
+        "type": "ui_group",
+        "z": "",
+        "name": "IBM Watson",
+        "tab": "8314a149.d930b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "5c872dc1.21f164",
+        "type": "ui_group",
+        "z": "",
+        "name": "Realt-time Weather",
+        "tab": "8314a149.d930b",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "95ec373b.008dd8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Motor Control",
+        "tab": "e07a6d62.98f32",
+        "order": 1,
+        "disp": true,
+        "width": 8,
+        "collapse": false
+    },
+    {
+        "id": "8314a149.d930b",
+        "type": "ui_tab",
+        "z": "",
+        "name": "IBM Watson Sensor Data",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e07a6d62.98f32",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Controls",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

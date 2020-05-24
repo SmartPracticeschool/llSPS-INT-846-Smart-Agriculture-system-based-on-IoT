@@ -1,4 +1,4 @@
-# llSPS-INT-846-Smart-Agriculture-system-based-on-IoT
+#                                 llSPS-INT-846-Smart-Agriculture-system-based-on-IoT
 ## Smart Agriculture system based on IoT
 
 This system allows the user viz. a farmer to analyse the data collected from the sensors on his/her farm and access the data from anywhere in the world using IBM Cloud services and also get Real-time weather data of the location of the farm. The motors can be controlled directly from the web UI thus allowing the farmer to take care of the farm from anywhere at anytime provided an internet connection. 

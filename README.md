@@ -23,5 +23,6 @@ The commands through the NodeRed Dashboard are sent to the cloud and are read by
 
 ## More information
 Any further information needed can be accessed [here](https://github.com/SmartPracticeschool/llSPS-INT-846-Smart-Agriculture-system-based-on-IoT/tree/master/Documentation).
+The video summary and working of the project can be accessed [here](https://github.com/SmartPracticeschool/llSPS-INT-846-Smart-Agriculture-system-based-on-IoT/blob/master/Link%20to%20the%20Video%20Summary-Working%20of%20the%20Project%20.txt).
 
 ### ThankYou!
